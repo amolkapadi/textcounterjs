@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+    h1{
+        text-align: center;
+    }
+    .main {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        border: 3px solid blue;
+        padding: 10px;
+    }
+    .main2{
+        display: flex;
+        justify-content: center;
+
+}
+.box{
+    background-color: blue;
+    padding: 20px;
+    color: white;
+}
+textarea{
+    font-size: 15px; 
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border: none;
+}
+</style>
+
+<body>
+    <div class="main">
+        <h1>Text & Word Count</h1>
+        <textarea class="demo" rows="10" cols="50"></textarea>
+        <div class="main2">
+            <p class="box "> Word :- <span class="words">0</span></p>
+            <p class="box">Charactor :-<span class="char">0</span></p>
+        </div>
+    </div>
+    <script>
+        var text = document.querySelector(".demo");
+        var words = document.querySelector('.words');
+        var char = document.querySelector('.char');
+        text.addEventListener('input', () => {
+            char.textContent = text.value.length
+            var txt = text.value.trim()
+            words.textContent = txt.split(/\s+/).filter((result) => result).length
+        })
+    </script>
+</body>
+
+</html>
